@@ -1,13 +1,14 @@
 import Layout from '../components/Layout'
 import dynamic from 'next/dynamic';
+import styles from '../style/app-card.module.css';
 const GitHubButton = dynamic(() => import('react-github-btn'), { ssr: false })
 
 const IndexPage = () => (
   <Layout title="Home | Let me introduce Dongsuo">
     <div className="home-page-container">
-    <div className="lang-switch">
-      <a href="/zh">中文</a>
-    </div>
+      <div className="lang-switch">
+        <a href="/zh">中文</a>
+      </div>
       <h1>Hi, Welcome.</h1>
       <h4>Let me introduce.</h4>
       <p>
@@ -37,7 +38,24 @@ const IndexPage = () => (
         He mainly works as a frontend programmer, but he has a passion for building elegant product.
       </p>
       <p>Here is some of his works:</p>
-      
+
+      <div className={styles['app-cards']}>
+        <a href="https://apps.apple.com/us/app/read-copilot/id6449242676" target="_blank" className={styles['app-card']}>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/1b/d0/061bd020-1f14-642f-9de9-b14983e2322d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/246x0w.webp" alt="Read Copilot" className={styles['app-icon']} />
+          <div className={styles['app-content']}>
+            <div className={styles['app-title']}>Read Copilot</div>
+            <div className={styles['app-description']}>An iOS app that helps you read better.</div>
+          </div>
+        </a>
+        <a href="https://apps.apple.com/us/app/life-progress-with-widget/id6740145361" target="_blank" className={styles['app-card']}>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/ff/ad/22ffaddc-69be-1a3e-3daa-d6ebd065d792/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/320x0w.webp" alt="Life Progress" className={styles['app-icon']} />
+          <div className={styles['app-content']}>
+            <div className={styles['app-title']}>Life Progress</div>
+            <div className={styles['app-description']}>An iOS app that helps you track your life progress.</div>
+          </div>
+        </a>
+      </div>
+
       <div className="repo-card" data-repo="dongsuo/vue-data-board"></div>
       <div className="repo-card" data-repo="dongsuo/vue-terminal"></div>
 
